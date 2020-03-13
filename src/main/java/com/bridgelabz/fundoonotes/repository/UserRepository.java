@@ -12,21 +12,21 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bridgelabz.fundoonotes.model.UserDetails;
 
 @Repository
-@Transactional
+
 public interface UserRepository extends JpaRepositoryImplementation<UserDetails, Long>
 {
 	@Query(value="select * from user where User_email=? ",nativeQuery = true)
 	UserDetails findByEmail(String useremail);
 	
 	@Query(value="select * from user where ID=? ",nativeQuery = true)
-	UserDetails findById(String id);
+	UserDetails findById(long id);
 	
-	@Query(value="insert into user(First_name,Last_name,User_email,Password,Mobilenumber,LocalDateTime) values(?,?,?,?,?,?)" ,nativeQuery = true)
-	void saveData(String firstname,String lastname,String useremail,String password,String mobileno,LocalDateTime localdatetime);
-	
+//	@Query(value="insert into user(First_name,Last_name,User_email,Password,Mobilenumber,LocalDateTime) values(?,?,?,?,?,?)" ,nativeQuery = true)
+//	void saveData(String firstname,String lastname,String useremail,String password,String mobileno,LocalDateTime localdatetime);
+//	
 	@Modifying
 	@Query(value="Update user set Isverified =true where User_email=? ",nativeQuery = true)
-	void updateIsVeified(String useremail);
+	void updateIsVeified(long id);
 	
 	@Modifying
 	@Query(value="Update user set Password=? where User_email=? ",nativeQuery = true)

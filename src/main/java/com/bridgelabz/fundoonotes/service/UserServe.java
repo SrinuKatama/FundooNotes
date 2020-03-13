@@ -13,10 +13,10 @@ public interface UserServe
 {
 	// For login and Registration we use this methods //
 	
-	UserDetails save(UserDto user);
+	UserDetails register(UserDto user) throws Exception;
 //	UserDetails login(LoginDto login);
 //	UserDetails forgetPasswod(String email);
-//	UserDetails mailVerification(String token);
+	UserDetails mailVerification(String token);
 //	boolean updatePassword(ResetPassword password,String token);
 //	List<UserDetails> getAllusers(String str);
 	

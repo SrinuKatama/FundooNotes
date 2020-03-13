@@ -1,15 +1,18 @@
 package com.bridgelabz.fundoonotes.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 // AUTHOR :SrinuKatama
 
-
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class UserDto 
 {
 	private String firstname;
