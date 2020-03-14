@@ -24,7 +24,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 @Service
 public class JWTutil
-{private static final String SECRET = "45144523456";
+{
+	private static final String SECRET = "45144523456";
 
 /* Method to generate the token for the particular userId */
 public String jwtToken(long Id) throws UnsupportedEncodingException {

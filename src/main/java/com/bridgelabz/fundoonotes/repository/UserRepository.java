@@ -25,7 +25,7 @@ public interface UserRepository extends JpaRepositoryImplementation<UserDetails,
 //	void saveData(String firstname,String lastname,String useremail,String password,String mobileno,LocalDateTime localdatetime);
 //	
 	@Modifying
-	@Query(value="Update user set Isverified =true where User_email=? ",nativeQuery = true)
+	@Query(value="Update user set Isverified =true where ID=? ",nativeQuery = true)
 	void updateIsVeified(long id);
 	
 	@Modifying
