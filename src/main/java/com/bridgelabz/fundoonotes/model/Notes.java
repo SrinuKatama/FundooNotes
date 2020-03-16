@@ -25,7 +25,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "NotesTable")
-public class Notes {
+public class Notes 
+{
 
 	@Id
 	@Column(name = "noteId")
@@ -44,8 +45,7 @@ public class Notes {
 	@Column(name = "Archive_or_Not", columnDefinition = "boolean default false")
 	private boolean isArchive;
 
-	@Column(name = "CreatedTime")
-	private LocalDateTime createdtime;
+	
 
 	@Column(name = "PickDate_and_Time")
 	private LocalDateTime remaindAt;
@@ -121,15 +121,6 @@ public class Notes {
 		this.isArchive = isArchive;
 	}
 
-
-	public LocalDateTime getCreatedtime() {
-		return createdtime;
-	}
-
-
-	public void setCreatedtime(LocalDateTime createdtime) {
-		this.createdtime = createdtime;
-	}
 
 
 	public LocalDateTime getRemaindAt() {
