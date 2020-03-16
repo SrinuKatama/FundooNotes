@@ -28,7 +28,7 @@ public class JWTutil
 	private static final String SECRET = "45144523456";
 
 /* Method to generate the token for the particular userId */
-public String jwtToken(long Id) throws UnsupportedEncodingException {
+public String jwtToken(Long Id) throws UnsupportedEncodingException {
 	String token = null;
 	try {
 		token = JWT.create().withClaim("id", Id).sign(Algorithm.HMAC512(SECRET));
@@ -40,7 +40,7 @@ public String jwtToken(long Id) throws UnsupportedEncodingException {
 }
 
 /* Method to decode the token to id */
-public long parseJWT(String jwt) throws JWTVerificationException, IllegalArgumentException, Exception {
+public Long parseJWT(String jwt) throws JWTVerificationException, IllegalArgumentException, Exception {
 	long Id = (long) 0;
 	if (jwt != null) {
 		Id = JWT.require(Algorithm.HMAC512(SECRET)).build().verify(jwt).getClaim("id").asLong();
