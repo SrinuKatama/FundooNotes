@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.bridgelabz.fundoonotes.model.UserDetails;
 
 @Repository
-
 public interface UserRepository extends JpaRepository<UserDetails, Long>
 {
 	@Query(value="select * from user where User_email=? ",nativeQuery = true)

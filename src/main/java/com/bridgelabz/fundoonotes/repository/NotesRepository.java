@@ -24,19 +24,19 @@ public interface NotesRepository  extends JpaRepository<Notes, Long>
 	  @Query(value = "select * from NotesTable where noteId=(select Max(note_id) from notes)", nativeQuery = true)
 		Notes selectLastNotes();
 	  
-	  @Query(value="select * from notes where noteId =?",nativeQuery = true)
+	  @Query(value="select * from NotesTable where noteId =?",nativeQuery = true)
 	  Notes findByNoteId(Long noteid);
 	  
 	  @Modifying
-	  @Query(value="update NotesTable set Color=? where noteId=? and ID=?")
+	  @Query(value="update NotesTable set Color=? where noteId=? AND ID=?" , nativeQuery = true)
 	  void updateColor(String color,Long noteid,Long id);
 	  
 	  @Modifying
-	  @Query(value="update NotesTable set Pinned_or_Not=? where noteId=? and ID=?" )
+	  @Query(value="update NotesTable set Pinned_or_Not=? where noteId=? AND ID=?", nativeQuery = true )
 	  boolean updatePin(boolean isPin,Long noteid,Long id);
 	 
 	  @Modifying
-	  @Query(value="update NotesTable set Archive_or_Not=? where noteId=? and ID=?",nativeQuery = true)
+	  @Query(value="update NotesTable set Archive_or_Not=? where noteId=? AND ID=?",nativeQuery = true)
 	  boolean updateArchive( boolean isArchive,Long noteid,Long id);
 	  
 	  @Modifying
@@ -44,30 +44,30 @@ public interface NotesRepository  extends JpaRepository<Notes, Long>
 	  void updateNotes(String noteTitle,String content, Long noteid,Long id);
 	  
 	  @Modifying
-	  @Query(value = "update NotesTable set Deleted_or_Not=?   where noteId=? and ID=?", nativeQuery = true)
+	  @Query(value = "update NotesTable set Deleted_or_Not=?  where noteId=? AND ID=?", nativeQuery = true)
 	   void updateTrash(boolean isTrash, Long noteid,Long id);
 	 
 	  @Modifying
-	  @Query(value="delete from NotesTable where noteId=? and ID=? ",nativeQuery = true)
+	  @Query(value="delete from NotesTable where noteId=? AND ID=? ",nativeQuery = true)
 	  void deleteNotes(Long noteid,Long id);
 	  
 	  @Modifying
-	  @Query(value="update NotesTable set PickDate_and_Time=?,Pick_Location=?  where noteId=? and ID=? ")
+	  @Query(value="update NotesTable set PickDate_and_Time=?,Pick_Location=?  where noteId=? AND ID=? ", nativeQuery = true)
 	  void remaind(LocalDateTime remaindAt,String remaindMe,Long noteid,Long id);
 	
-	  @Query(value="select * from NotesTable where  noteId=? and ID=?")
+	  @Query(value="select * from NotesTable where  noteId=? AND ID=?", nativeQuery = true)
 	  List<Notes> getListOfNotes(Long noteid,Long id);
 	  
-	  @Query(value="select * from NotesTable where  noteId=?")
+	  @Query(value="select * from NotesTable where  noteId=?", nativeQuery = true)
 	  List<Notes> getListOfNotesbyid(Long Id);
 	  
-	  @Query(value = "select * from NotesTable where  noteId= ? ORDER BY Note_Title", nativeQuery = true)
+	  @Query(value = "select * from NotesTable where  noteId=? ORDER BY Note_Title", nativeQuery = true)
 	  List<Notes> getAllNotesByName(Long id);
 	  
 	  @Query(value = "select * from NotesTable where  noteId= ?",nativeQuery = true)
 	  List<Notes> getAllNotesByLocaldateandtime(Long id);
 	  
-	  @Query(value="select * from NotesTable where Archive_or_Not=? ")
+	  @Query(value="select * from NotesTable where Archive_or_Not=? ", nativeQuery = true)
 	  List<Notes> getAllNotesByArchive(Long id);
 
 }

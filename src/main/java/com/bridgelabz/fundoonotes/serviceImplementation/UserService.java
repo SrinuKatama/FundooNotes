@@ -26,7 +26,8 @@ import com.bridgelabz.fundoonotes.utility.JWTutil;
 import com.bridgelabz.fundoonotes.utility.MailUtility;
 
 @Service
-public class UserService implements UserServe {
+public class UserService implements UserServe 
+{
 	private UserDetails userDetails = new UserDetails();
 
 	@Autowired
@@ -60,7 +61,7 @@ public class UserService implements UserServe {
 			userDetails.setPassword(epassword);
 			userDetails.setMobileno(user.getMobileno());
 			userDetails.setLocaldatetime(LocalDateTime.now());
-			userDetails.setVerified(true);
+			userDetails.setVerified(false);
 			userRepo.save(userDetails);
 
 			// For Token Generation //

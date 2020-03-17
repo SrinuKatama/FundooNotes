@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.bridgelabz.fundoonotes.dto.NotesDto;
 import com.bridgelabz.fundoonotes.dto.RemaindDto;
 import com.bridgelabz.fundoonotes.model.Notes;
-
+@Service
 public interface NoteService
 {
 	 Notes addNotes(NotesDto notes,String token) throws JWTVerificationException, IllegalArgumentException, Exception;

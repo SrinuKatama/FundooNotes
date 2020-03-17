@@ -45,8 +45,6 @@ public class Notes
 	@Column(name = "Archive_or_Not", columnDefinition = "boolean default false")
 	private boolean isArchive;
 
-	
-
 	@Column(name = "PickDate_and_Time")
 	private LocalDateTime remaindAt;
 

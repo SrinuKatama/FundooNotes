@@ -1,5 +1,6 @@
 package com.bridgelabz.fundoonotes.controller;
 
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,9 +22,7 @@ import com.bridgelabz.fundoonotes.model.Notes;
 import com.bridgelabz.fundoonotes.responses.Responses;
 import com.bridgelabz.fundoonotes.service.NoteService;
 
-import io.lettuce.core.dynamic.annotation.Param;
 import io.swagger.annotations.ApiOperation;
-import lombok.val;
 
 
 @RestController
