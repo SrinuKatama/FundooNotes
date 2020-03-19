@@ -1,6 +1,7 @@
 package com.bridgelabz.fundoonotes.model;
 
 /*   Author : SrinuKatama
+
 */
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,7 +14,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
+import lombok.Getter;
 import lombok.ToString;
+
 
 @Entity
 @ToString
@@ -53,7 +56,7 @@ public class UserDetails
 	private boolean isVerified;
 	
 	
-//	private List<Notes> notes;
+ 	private List<Notes> notes;
 
 	public Long getId() {
 		return id;

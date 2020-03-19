@@ -112,7 +112,7 @@ public class UserService implements UserServe
 				{
 					maildto.setEmail(getmail.getUseremail());
 					String maildata = res.response("http://localhost:8082/checking/",
-							jwt.jwtToken(userDetails.getId()));
+				 jwt.jwtToken(userDetails.getId()));
 					maildto.setResponse(maildata);
 					maildto.setSubject("this mail is from admin srinu ,you are successfully logged in");
 					util.sendMail(maildto);

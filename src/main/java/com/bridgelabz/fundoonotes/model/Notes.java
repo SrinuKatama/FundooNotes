@@ -2,6 +2,8 @@
 package com.bridgelabz.fundoonotes.model;
 
 import java.time.LocalDateTime;
+
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -17,9 +19,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @NoArgsConstructor
@@ -61,123 +61,103 @@ public class Notes
 	@ManyToOne
 	@JoinColumn(name = "ID")
 	private UserDetails user;
-
 	
-	/*
-	 * @ManyToMany
-	 * 
-	 * @JsonIgnore private List<Lable> lables;
-	 */
+	 @ManyToMany
+     @JsonIgnore 
+	 private List<Lable> lables;
+	 
 
+	public List<Lable> getLables() {
+		return lables;
+	}
 
-	public long getNoteid() {
+	public void setLables(List<Lable> lables) {
+		this.lables = lables;
+	}
+
+	public Long getNoteid() {
 		return noteid;
 	}
 
-
-	public void setNoteid(long noteid) {
+	public void setNoteid(Long noteid) {
 		this.noteid = noteid;
 	}
-
 
 	public String getNoteTitle() {
 		return noteTitle;
 	}
 
-
 	public void setNoteTitle(String noteTitle) {
 		this.noteTitle = noteTitle;
 	}
-
 
 	public String getContent() {
 		return content;
 	}
 
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
 
 	public boolean isPin() {
 		return isPin;
 	}
 
-
 	public void setPin(boolean isPin) {
 		this.isPin = isPin;
 	}
-
 
 	public boolean isArchive() {
 		return isArchive;
 	}
 
-
 	public void setArchive(boolean isArchive) {
 		this.isArchive = isArchive;
 	}
-
-
 
 	public LocalDateTime getRemaindAt() {
 		return remaindAt;
 	}
 
-
 	public void setRemaindAt(LocalDateTime remaindAt) {
 		this.remaindAt = remaindAt;
 	}
-
 
 	public String getRemaindMe() {
 		return remaindMe;
 	}
 
-
 	public void setRemaindMe(String remaindMe) {
 		this.remaindMe = remaindMe;
 	}
-
 
 	public boolean isTrash() {
 		return isTrash;
 	}
 
-
 	public void setTrash(boolean isTrash) {
 		this.isTrash = isTrash;
 	}
-
 
 	public String getColor() {
 		return color;
 	}
 
-
 	public void setColor(String color) {
 		this.color = color;
 	}
-
 
 	public UserDetails getUser() {
 		return user;
 	}
 
-
 	public void setUser(UserDetails user) {
 		this.user = user;
 	}
 
-	/*
-	 * public List<Lable> getLables() { return lables; }
-	 */
+	
+	
+	
 
-
-	/*
-	 * public void setLables(List<Lable> lables) { this.lables = lables; }
-	 */
-	 
 
 }

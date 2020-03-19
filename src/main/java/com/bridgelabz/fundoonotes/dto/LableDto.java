@@ -16,4 +16,12 @@ public class LableDto
 {
 	private String lableName;
 
+	public String getLableName() {
+		return lableName;
+	}
+
+	public void setLableName(String lableName) {
+		this.lableName = lableName;
+	}
+
 }
