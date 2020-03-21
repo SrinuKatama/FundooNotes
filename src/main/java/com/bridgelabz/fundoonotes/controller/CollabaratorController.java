@@ -22,6 +22,7 @@ public class CollabaratorController {
 	@Autowired
 	private CollabaratorService coolbserve;
 
+
 	/* JPA for collabarator creation */
 
 	@PostMapping("/collabaratecreate")
@@ -36,6 +37,9 @@ public class CollabaratorController {
 		}
 
 	}
+	
+	
+	
 
 	/* API for delete the collabarator */
 
