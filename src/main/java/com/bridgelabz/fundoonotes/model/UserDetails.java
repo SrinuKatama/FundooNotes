@@ -4,6 +4,7 @@ package com.bridgelabz.fundoonotes.model;
 
 */
 import java.time.LocalDateTime;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,7 +17,6 @@ import javax.validation.constraints.NotEmpty;
 
 import lombok.Getter;
 import lombok.ToString;
-
 
 @Entity
 @ToString

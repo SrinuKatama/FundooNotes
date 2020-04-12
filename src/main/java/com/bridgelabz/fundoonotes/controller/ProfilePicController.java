@@ -23,7 +23,7 @@ public class ProfilePicController
 	@Autowired
 	private ProfilepicService profilepicser;
 	
-	/* API for uploading the profilepicture*/
+	/* API for uploading the profilepicture */
 	
 	
 	@PostMapping("/uploadpic/{token}")
