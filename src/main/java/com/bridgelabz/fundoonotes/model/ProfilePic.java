@@ -29,7 +29,7 @@ public class ProfilePic
 	private String profilename;
 
 	@ManyToOne
-	@JoinColumn(name="ID")
+	@JoinColumn(name="user_id")
 	private UserDetails userdetails;
 
 	public Long getProfileid() {
