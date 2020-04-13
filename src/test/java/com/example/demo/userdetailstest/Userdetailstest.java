@@ -1,5 +1,9 @@
 package com.example.demo.userdetailstest;
 
-public class Userdetailstest {
+import com.bridgelabz.fundoonotes.serviceImplementation.UserService;
+
+public class Userdetailstest 
+{
+	UserService userserve=new UserService();
 
 }
