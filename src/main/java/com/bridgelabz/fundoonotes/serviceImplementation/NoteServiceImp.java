@@ -311,7 +311,6 @@ public class NoteServiceImp implements NoteService
 			return note2;
 		}
 
-		
 		return null;
 	}
 

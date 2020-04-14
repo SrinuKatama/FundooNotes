@@ -34,10 +34,39 @@ public class Userdetailstest
 	@Test
 	public void getUserstest()
 	{
-		when(userrepo.getUserList()).thenReturn(Stream.of(new UserDetails(1,"srinu","b","srinu@123","123","95425")).
+		when(userrepo.getUserList()).thenReturn(Stream.
+				of(new UserDetails(1,"srinu","b","srinu@123","123","95425")).
 				collect(Collectors.toList()));
 		assertEquals(1,userserve.getAllusers("admin").size());
 		
 	}
+	
+	@Test
+	public void passwordtest()
+	{
+		String password="sri123";
+		String useremail="srinu@gmail.com";
+		
+		UserDetails user=new UserDetails(1,"srinu","b","srinu@123","123","95425");
+		when(userrepo.updatePassword(password, useremail)).thenReturn(Stream.of(user));
+		assertEquals(user.getPassword(),userserve.updatePassword(user.getPassword(), user.getUseremail()));
+
+	}
+	
+	
+	@Test
+	public void registertest()
+	{
+		String useremail="srinu@gmail.com";
+		when(userrepo.findByEmail(useremail)).thenReturn(Stream.of(new UserDetails(1,"srinu","b","srinu@123","123","95425")).
+				collect(Collectors.toList()));
+		assertEquals(1, userserve.register(user));
+		
+	}
+	
+	
+	
+	
+	
 
 }
