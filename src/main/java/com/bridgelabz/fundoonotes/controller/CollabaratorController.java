@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,26 +20,32 @@ import com.bridgelabz.fundoonotes.service.CollabaratorService;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
+@ControllerAdvice
 public class CollabaratorController {
 	@Autowired
 	private CollabaratorService coolbserve;
-
 
 	/* JPA for collabarator creation */
 
 	@PostMapping("/collabaratecreate")
 	@ApiOperation(value = "for creatig the collabarator")
-	public ResponseEntity<Responses> saveData(@RequestParam String collabaratormail, @RequestParam Long noteid) {
+	public Responses saveData(@RequestParam String collabaratormail, @RequestParam Long noteid) {
+		Responses res = new Responses();
 		Collabarator result = coolbserve.saveData(collabaratormail, noteid);
 		if (result != null) {
-			return ResponseEntity.status(HttpStatus.ACCEPTED).body(new Responses("collabaration is done", 200, result));
+			res.setMessage("success");
+			res.setStatusCode(200);
+			res.setDetails(result);
+			return res;
+
 		} else {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-					.body(new Responses("unable to collabarate", 400, result));
+			res.setMessage("unsuccess");
+			res.setStatusCode(400);
+			res.setDetails(result);
+			return res;
 		}
 
 	}
-	
 	
 	
 

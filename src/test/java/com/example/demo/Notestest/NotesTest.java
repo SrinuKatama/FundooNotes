@@ -41,8 +41,15 @@ public class NotesTest
 	@Test
 	public void changecolortest()
 	{
-		
+		String color="#fff";
+		NotesDto notesdto=new NotesDto();
+		Notes notes=new Notes("sri","skhsbkbdkbd",'10:15:30',1);
+		String token="adhiufufhsdddiuh";
+		when(notesserve.changeColor(color, notes.getNoteid(), token)).thenReturn(notes);
+		assertEquals(1,notesrepo.updateColor(color, noteid, id );
 	}
+	
+	
 	
 	
 

@@ -34,6 +34,9 @@ public class Responses
 	public void setMessage(String message) {
 		this.message = message;
 	}
+	public Responses() {
+		super();
+	}
 	
 	
 
