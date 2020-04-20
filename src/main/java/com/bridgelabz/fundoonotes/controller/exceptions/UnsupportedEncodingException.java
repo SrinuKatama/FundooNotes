@@ -4,15 +4,15 @@ import java.util.List;
 
 import org.springframework.validation.ObjectError;
 
-public class IllegalArgumentException extends Exception
+public class UnsupportedEncodingException 
 {
 	List<ObjectError> errors;
 
-    public static IllegalArgumentException createWith(List<ObjectError> errors) {
-        return new IllegalArgumentException(errors);
+    public static UnsupportedEncodingException createWith(List<ObjectError> errors) {
+        return new UnsupportedEncodingException(errors);
     }
 
-    private IllegalArgumentException(List<ObjectError> errors) {
+    private UnsupportedEncodingException(List<ObjectError> errors) {
         this.errors = errors;
     }
 
