@@ -47,7 +47,7 @@ public class Userdetailstest
 		String password="sri123";
 		String useremail="srinu@gmail.com";
 		
-		UserDetails user=new UserDetails(1,"srinu","b","srinu@123","123","95425");
+		UserDetails user=new UserDetails();
 		when(userrepo.updatePassword(password, useremail)).thenReturn(Stream.of(user));
 		assertEquals(user.getPassword(),userserve.updatePassword(user.getPassword(), user.getUseremail()));
 
